@@ -10,7 +10,7 @@ namespace CleanArch.Infra.IoC
     // CrossCutting project
     public class DependencyContainer
     {
-        public static void RegisterService(IServiceCollection services)
+        public static void RegisterServices(IServiceCollection services)
         {
             //Application Layer
             services.AddScoped<ICourseService, CourseService>();
