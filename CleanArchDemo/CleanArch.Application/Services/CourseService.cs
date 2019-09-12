@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CleanArch.Application.Interfaces;
+﻿using CleanArch.Application.Interfaces;
 using CleanArch.Application.ViewModels;
 using CleanArch.Domain.Interfaces;
 
 namespace CleanArch.Application.Services
 {
-    public class CourseService:ICourseService
+    public class CourseService : ICourseService
     {
         private ICourseRepository _courseRepository;
 
