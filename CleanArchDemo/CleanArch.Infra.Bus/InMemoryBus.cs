@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
+using CleanArch.Domain.Core.Bus;
+using CleanArch.Domain.Core.Commands;
 using MediatR;
 
 namespace CleanArch.Infra.Bus
