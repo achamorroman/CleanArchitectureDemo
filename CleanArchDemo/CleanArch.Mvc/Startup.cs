@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CleanArch.Mvc.Data;
+using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -50,6 +51,8 @@ namespace CleanArch.Mvc
                     Configuration.GetConnectionString("UniversityDbConnection")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddMediatR(typeof(Startup));
 
             RegisterServices(services);
         }
