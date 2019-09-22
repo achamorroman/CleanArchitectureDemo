@@ -14,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace CleanArch.Api
 {
@@ -36,6 +37,15 @@ namespace CleanArch.Api
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info()
+                {
+                    Title = "University API",
+                    Version = "v1"
+                });
+            });
+
             services.AddMediatR(typeof(Startup));
 
             RegisterServices(services);
@@ -55,6 +65,11 @@ namespace CleanArch.Api
             }
 
             app.UseHttpsRedirection();
+            app.UseSwagger();
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json","University API v1");
+            });
             app.UseMvc();
         }
 
